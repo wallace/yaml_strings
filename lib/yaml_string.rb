@@ -1,5 +1,9 @@
 require "yaml_string/version"
 
 module YamlString
-  # Your code goes here...
+  class << self
+    def silly_method
+      true
+    end
+  end
 end

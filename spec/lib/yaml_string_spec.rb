@@ -2,6 +2,6 @@ require "spec_helper"
 
 describe YamlString do
   it "should exist" do
-    YamlString.new.should be_a(YamlString)
+    YamlString.silly_method.should be_true
   end
 end
