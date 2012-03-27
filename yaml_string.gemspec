@@ -14,4 +14,8 @@ Gem::Specification.new do |gem|
   gem.name          = "yaml_string"
   gem.require_paths = ["lib"]
   gem.version       = YamlString::VERSION
+
+  gem.add_development_dependency 'fakefs'
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rspec'
 end
