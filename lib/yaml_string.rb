@@ -1,5 +1,6 @@
 require "yaml_string/version"
 require "yaml_string/yaml_to_strings_encoder"
+require "yaml_string/strings_to_yaml_encoder"
 
 module YamlString
   class << self
