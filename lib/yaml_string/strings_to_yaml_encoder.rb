@@ -14,8 +14,8 @@ class StringsToYamlEncoder
 
   # Returns a hash when given
   def parse_strings_array(array)
-    raise ArgumentError.new("Invalid strings format: missing '{\\n'") if array.shift != "{\n"
-    raise ArgumentError.new("Invalid strings format: missing '}'")    if array.pop   != "}"
+    raise ArgumentError.new("Invalid strings format: missing '{\\n'") unless /{/.match(array.shift)
+    raise ArgumentError.new("Invalid strings format: missing '}'")    unless /}/.match(array.pop)
 
     array.inject({}) do |hash,line|
       key_string, value = parse_strings_key_value(line)

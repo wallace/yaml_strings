@@ -15,15 +15,23 @@ describe YamlToStringsEncoder do
 
   describe "to_property_dict_string" do
     it "should handle an empty array" do
-      subject.to_property_dict_string([]).should eql("{
-}")
+      subject.to_property_dict_string([]).should eql(
+<<STRINGS
+{
+}
+STRINGS
+)
     end
 
     it "should properly format a dict_property" do
       dict_property_string = '"a.b" = "c"; '
-      subject.to_property_dict_string([dict_property_string]).should eql("{
+      subject.to_property_dict_string([dict_property_string]).should eql(
+<<STRINGS
+{
 #{dict_property_string}
-}")
+}
+STRINGS
+)
     end
   end
 
@@ -31,9 +39,12 @@ describe YamlToStringsEncoder do
     it "should create a properly formatted 'strings' string" do
       subject.yaml_hash = { a: { b: :c } }
       subject.to_s.should eql(
-"{
-\"a.b\" = \"c\" ;
-}")
+<<STRINGS
+{
+"a.b" = "c" ;
+}
+STRINGS
+)
     end
   end
 end

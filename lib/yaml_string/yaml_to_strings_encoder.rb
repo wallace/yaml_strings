@@ -26,7 +26,7 @@ class YamlToStringsEncoder
 
   # Returns a string representing an old ASCII style property list
   def to_property_dict_string(array_of_dict_propertes)
-    (["{"] + array_of_dict_propertes + ["}"]).join("\n")
+    (["{"] + array_of_dict_propertes + ["}", nil]).join("\n")
   end
 
   def to_s
