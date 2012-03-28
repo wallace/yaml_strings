@@ -13,6 +13,12 @@ describe StringsToYamlEncoder do
     it "should raise an error if missing '}'" do
       lambda { subject.parse_strings_array(["{\n"]) }.should raise_error(ArgumentError)
     end
+
+    it "should work" do
+      subject.parse_strings_array(
+        ["{\n", "en.app_name = awesome;", "}"]
+      ).should eql({ "en" => { "app_name" => "awesome" } })
+    end
   end
 
   describe "valid_string?" do
@@ -76,6 +82,34 @@ describe StringsToYamlEncoder do
       lambda { subject.parse_strings_key_value("a.b = c") }.should raise_error(InvalidTerminatorError)
     end
 
+    it "should work fine" do
+      key_string, value = subject.parse_strings_key_value("a.b = c;")
+      key_string.should eql("a.b")
+      value.should eql("c")
+    end
+  end
 
+  describe "remove_quotes_from_key_string" do
+    it "should remove \" from key_string" do
+      subject.remove_quotes_from_key_string('"a.b"').should eql("a.b")
+    end
+
+    it "should do nothing to the string" do
+      subject.remove_quotes_from_key_string('a.b').should eql("a.b")
+    end
+  end
+
+  describe "#nested_hash" do
+    it "handles one element arrays" do
+      subject.nested_hash([:a]).should eql(:a)
+    end
+
+    it "handles two element arrays" do
+      subject.nested_hash([:a, :b]).should eql({a: :b})
+    end
+
+    it "handles three element arrays" do
+      subject.nested_hash([:a, :b, :c]).should eql({a: { b: :c }})
+    end
   end
 end
