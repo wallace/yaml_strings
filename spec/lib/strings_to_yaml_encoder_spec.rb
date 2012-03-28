@@ -5,6 +5,14 @@ describe StringsToYamlEncoder do
     lambda { subject.should be_a(StringsToYamlEncoder) }.should_not raise_error(Exception)
   end
 
+  describe "#to_s" do
+    it "should work" do
+      subject.parse_strings_array(
+        ["{\n", "en.app_name = awesome;", "}"]
+      ).should eql({ "en" => { "app_name" => "awesome" } })
+    end
+  end
+
   describe "parse_strings_array" do
     it "should raise an error if missing '{'" do
       lambda { subject.parse_strings_array(["}"]) }.should raise_error(ArgumentError)
