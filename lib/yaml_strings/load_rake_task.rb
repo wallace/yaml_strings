@@ -1,5 +1,5 @@
 # This class ensures that all rake tasks are loaded in a Rails 3 app
-if const_defined?(Rails)
+if defined?(Rails)
   class LoadRakeTask < Rails::Railtie
     railtie_name :yaml_strings
     rake_tasks do
