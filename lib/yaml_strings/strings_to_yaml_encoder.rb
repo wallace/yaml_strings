@@ -33,12 +33,7 @@ class StringsToYamlEncoder
     # { a => { b => { c => d } } }
     #
     def nested_hash(keys)
-      first = keys.shift
-      return first if keys.empty? # base case
-
-      hash        = Hash.new
-      hash[first] = nested_hash(keys)
-      hash
+      keys.reverse.inject { |hsh, elem| { elem => hsh } }
     end
 
     # Returns true if the value is a valid string NSString
