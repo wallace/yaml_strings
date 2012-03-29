@@ -13,7 +13,7 @@ describe StringsToHashEncoder do
 
     it "should work with a more complicated strings file" do
       subject.strings_array = ["{\n", "en.app_name = awesome;", "en.helpers.create = \"Create Something\";", "}"]
-      subject.to_hash.should eql({ "en" => { "app_name" => "awesome", "helpers" => { "create" => "\"Create Something\"" } } })
+      subject.to_hash.should eql({ "en" => { "app_name" => "awesome", "helpers" => { "create" => "Create Something" } } })
     end
   end
 
