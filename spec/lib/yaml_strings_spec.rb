@@ -25,11 +25,6 @@ STRINGS
       f.puts("}")
     end
 
-    subject.strings_to_yaml(strings_file).should eql(
-<<YAML
-a:
-  b: 'c'
-YAML
-)
+    subject.strings_to_hash(strings_file).should eql({"a"=>{"b"=>"'c'"}})
   end
 end

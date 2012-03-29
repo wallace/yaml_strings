@@ -2,14 +2,14 @@ class InvalidKeyError < StandardError; end
 class InvalidValueError < StandardError; end
 class InvalidTerminatorError < StandardError; end
 
-class StringsToYamlEncoder
+class StringsToHashEncoder
   attr_accessor :strings_array
   def initialize(strings_array = [])
     @strings_array = strings_array
   end
 
   def to_s
-    StringsToYamlEncoder.parse_strings_array(@strings_array)
+    StringsToHashEncoder.parse_strings_array(@strings_array)
   end
 
   class << self

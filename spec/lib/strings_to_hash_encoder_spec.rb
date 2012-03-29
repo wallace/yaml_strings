@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe StringsToYamlEncoder do
+describe StringsToHashEncoder do
   it "should exist" do
-    lambda { subject.should be_a(StringsToYamlEncoder) }.should_not raise_error(Exception)
+    lambda { subject.should be_a(StringsToHashEncoder) }.should_not raise_error(Exception)
   end
 
   describe "#to_s" do
@@ -13,7 +13,7 @@ describe StringsToYamlEncoder do
   end
 
   describe "class methods" do
-    subject { StringsToYamlEncoder }
+    subject { StringsToHashEncoder }
 
     describe ".parse_strings_array" do
       it "should raise an error if missing '{'" do
