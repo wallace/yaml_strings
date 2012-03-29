@@ -12,7 +12,7 @@ module YamlStrings
 
     def strings_to_hash(string_file)
       strings_array = File.readlines(string_file)
-      StringsToHashEncoder.new(strings_array).to_s
+      StringsToHashEncoder.new(strings_array).to_hash
     end
   end
 end

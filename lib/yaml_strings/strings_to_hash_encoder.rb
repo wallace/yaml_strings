@@ -8,7 +8,7 @@ class StringsToHashEncoder
     @strings_array = strings_array
   end
 
-  def to_s
+  def to_hash
     StringsToHashEncoder.parse_strings_array(@strings_array)
   end
 
@@ -24,8 +24,13 @@ class StringsToHashEncoder
         key_string = remove_quotes_from_key_string(key_string)
         keys = key_string.split('.')
 
-        hash.merge!(nested_hash(keys + [value]))
+        recursive_merge(hash, nested_hash(keys + [value]))
       end
+    end
+
+    # Adapted from http://stackoverflow.com/a/8415328
+    def recursive_merge(a, b)
+      a.merge(b) {|key, a_item, b_item| recursive_merge(a_item, b_item) } 
     end
 
     # %{ a b c d } =>

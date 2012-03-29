@@ -5,10 +5,15 @@ describe StringsToHashEncoder do
     lambda { subject.should be_a(StringsToHashEncoder) }.should_not raise_error(Exception)
   end
 
-  describe "#to_s" do
+  describe "#to_hash" do
     it "should work" do
       subject.strings_array = ["{\n", "en.app_name = awesome;", "}"]
-      subject.to_s.should eql({ "en" => { "app_name" => "awesome" } })
+      subject.to_hash.should eql({ "en" => { "app_name" => "awesome" } })
+    end
+
+    it "should work with a more complicated strings file" do
+      subject.strings_array = ["{\n", "en.app_name = awesome;", "en.helpers.create = \"Create Something\";", "}"]
+      subject.to_hash.should eql({ "en" => { "app_name" => "awesome", "helpers" => { "create" => "\"Create Something\"" } } })
     end
   end
 
