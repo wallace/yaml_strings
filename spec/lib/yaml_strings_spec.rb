@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe YamlString, fakefs: true do
+describe YamlStrings, fakefs: true do
   it "should create a properly formatted, new strings file" do
     yaml_file   = "sample.yml"
     File.open(yaml_file, "w") do |f|

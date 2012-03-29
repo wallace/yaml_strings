@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/yaml_string/version', __FILE__)
+require File.expand_path('../lib/yaml_strings/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Jonathan R. Wallace"]
@@ -11,9 +11,9 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "yaml_string"
+  gem.name          = "yaml_strings"
   gem.require_paths = ["lib"]
-  gem.version       = YamlString::VERSION
+  gem.version       = YamlStrings::VERSION
 
   gem.add_development_dependency 'fakefs'
   gem.add_development_dependency 'rake'

@@ -1,9 +1,9 @@
-require "yaml_string/version"
-require "yaml_string/yaml_to_strings_encoder"
-require "yaml_string/strings_to_yaml_encoder"
-require "yaml_string/load_rake_task" if defined?(Rails)
+require "yaml_strings/version"
+require "yaml_strings/yaml_to_strings_encoder"
+require "yaml_strings/strings_to_yaml_encoder"
+require "yaml_strings/load_rake_task"
 
-module YamlString
+module YamlStrings
   class << self
     def yaml_to_strings(yaml_file)
       yaml_hash = YAML.load(File.open(yaml_file))

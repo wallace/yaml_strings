@@ -1,4 +1,4 @@
-# YamlString
+# YamlStrings
 
 Converts a YAML file, specifically the ones typically used for locale and
 translation files in Rails, to an old style Apple ASCII Property List,
@@ -8,7 +8,7 @@ http://bit.ly/old_style_ascii_property_list
 
 Add this line to your application's Gemfile:
 
-    gem 'yaml_string'
+    gem 'yaml_strings'
 
 And then execute:
 
@@ -16,12 +16,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install yaml_string
+    $ gem install yaml_strings
 
 ## Usage
 
-    $ rake yaml_string:convert_to_yaml[<file_or_directory>]
-    $ rake yaml_string:convert_to_string[<file_or_directory>]
+    $ rake yaml_strings:yaml_to_strings YAML_FILE=<path_to_file> > your_file_name.strings
 
 ## Contributing
 

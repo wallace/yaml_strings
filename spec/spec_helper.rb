@@ -1,4 +1,4 @@
-require 'yaml_string'
+require 'yaml_strings'
 require 'mocha'
 require 'fakefs/spec_helpers'
 
