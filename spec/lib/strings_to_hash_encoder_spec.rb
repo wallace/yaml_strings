@@ -104,13 +104,13 @@ describe StringsToHashEncoder do
       end
     end
 
-    describe ".remove_quotes_from_key_string" do
+    describe ".remove_quotes" do
       it "should remove \" from key_string" do
-        subject.remove_quotes_from_key_string('"a.b"').should eql("a.b")
+        subject.remove_quotes('"a.b"').should eql("a.b")
       end
 
       it "should do nothing to the string" do
-        subject.remove_quotes_from_key_string('a.b').should eql("a.b")
+        subject.remove_quotes('a.b').should eql("a.b")
       end
     end
 

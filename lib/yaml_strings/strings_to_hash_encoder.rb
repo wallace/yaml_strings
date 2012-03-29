@@ -21,10 +21,11 @@ class StringsToHashEncoder
       array.inject({}) do |hash,line|
         key_string, value = parse_strings_key_value(line)
 
-        key_string = remove_quotes_from_key_string(key_string)
-        keys = key_string.split('.')
+        key_string = remove_quotes(key_string)
+        value      = remove_quotes(value)
+        keys = key_string.split('.') + [value]
 
-        recursive_merge(hash, nested_hash(keys + [value]))
+        recursive_merge(hash, nested_hash(keys))
       end
     end
 
@@ -59,9 +60,10 @@ class StringsToHashEncoder
       value.gsub(' ', '')[-1] == ";"
     end
 
-    def remove_quotes_from_key_string(key_string)
+    def remove_quotes(key_string)
       key_string = key_string.strip[1..-1] if key_string.strip[0]  == '"'
       key_string = key_string.strip[0..-2] if key_string.strip[-1] == '"'
+      key_string.strip!
       key_string
     end
 
