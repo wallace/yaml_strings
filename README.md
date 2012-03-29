@@ -1,8 +1,8 @@
 # YamlStrings
 
 Converts a YAML file, specifically the ones typically used for locale and
-translation files in Rails, to an old style Apple ASCII Property List,
-http://bit.ly/old_style_ascii_property_list
+translation files in Rails, to an old style Apple ASCII Property List
+http://bit.ly/old_style_ascii_property_list, and vice versa.
 
 ## Installation
 
@@ -21,6 +21,7 @@ Or install it yourself as:
 ## Usage
 
     $ rake yaml_strings:yaml_to_strings YAML_FILE=<path_to_file> > your_file_name.strings
+    $ rake yaml_strings:strings_to_yaml STRINGS_FILE=./en.strings YAML_FILE=./en.yml
 
 ## Contributing
 
