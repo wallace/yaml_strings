@@ -2,6 +2,7 @@ require "yaml_strings/version"
 require "yaml_strings/yaml_to_strings_encoder"
 require "yaml_strings/strings_to_hash_encoder"
 require "yaml_strings/load_rake_task"
+Dir["tasks/**/*.rake"].each { |ext| load ext } if defined?(Rake)
 
 module YamlStrings
   class << self
